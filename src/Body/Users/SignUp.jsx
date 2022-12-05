@@ -7,7 +7,7 @@ import { API_BASE_URL } from '../../Config/API-Config';
 const SignUp = () => {
   const navigate = useNavigate();
     const [checkNum, setCheckNum] = useState(""); // 사용자가 입력한 인증번호
-    const [certificated, setCertificated] = useState(null);
+    const [certificated, setCertificated] = useState(false);
     const [uEmail, setUEmail] = useState("");
     const [uName, setUName] = useState("");
 
@@ -23,6 +23,7 @@ const SignUp = () => {
     }
 
     const handleSubmit = (e) => {
+        console.log(certificated)
         e.preventDefault();
 
         const data = new FormData(document.getElementById("signup"));
@@ -34,7 +35,7 @@ const SignUp = () => {
         if (certificated) {
             register({
                 email: userEmail, password: userPassword, name: userName,
-                phone: userPNum
+                phone: userPNum, verify : certificated
             
             });
         } else {
@@ -62,8 +63,7 @@ const SignUp = () => {
             code : checkNum
         })
             .then((res) => {
-                console.log(res.data)
-                setCertificated(res.data.value);
+                setCertificated(res.data);
             })
             .catch()
     }

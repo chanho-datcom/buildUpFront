@@ -6,17 +6,17 @@ import Main from './Body/Main/Main';
 const RouterPage = () => {
   return (
     <div>
-    <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Main/>}/>
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/signup" element={<SignUp />} />
-            </Routes>
-      
-    </BrowserRouter>
+      <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Main/>}/>
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
+              </Routes>
+        
+      </BrowserRouter>
 
 
-</div>
+    </div>
   );
 };
 
